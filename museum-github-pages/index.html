@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#263f32" />
+    <meta
+      name="description"
+      content="Бюро открытий — интерактивный музей изобретений. Узнайте, как появились привычные вещи, исследуйте авторские идеи и соберите изобретение по чертежу." />
+    <title>Бюро открытий — музей изобретений</title>
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#collection">Перейти к экспонатам</a>
+    <!-- Шапка сайта -->
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="#home" aria-label="Бюро открытий — на главную">
+          <span class="brand-symbol" aria-hidden="true">✳</span>
+          <span>бюро открытий<small>МУЗЕЙ ИЗОБРЕТЕНИЙ</small></span>
+        </a>
+        <button
+          class="menu-toggle"
+          aria-expanded="false"
+          aria-controls="main-nav"
+          aria-label="Открыть меню"
+          ><span></span><span></span
+        ></button>
+        <nav id="main-nav" class="main-nav" aria-label="Основная навигация">
+          <a href="#collection">Коллекция</a>
+          <a href="#workshop">Мастерская <span class="nav-dot"></span></a>
+          <a href="#ideas">Авторские идеи</a>
+        </nav>
+        <a class="header-cta" href="#workshop"
+          >Стать изобретателем <span aria-hidden="true">↗</span></a
+        >
+      </div>
+    </header>
+
+    <main>
+      <!-- Первый экран -->
+      <section class="hero container" id="home" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="eyebrow"
+            ><span class="tiny-star">✳</span> БОЛЬШИЕ ИДЕИ НАЧИНАЮТСЯ С ЛЮБОПЫТСТВА</p
+          >
+          <h1 id="hero-title"
+            >Когда-то это<br />
+            было просто<br />
+            <em>идеей.</em></h1
+          >
+          <p class="hero-description"
+            >Сегодня — вещи, изменившие мир.<br />
+            Откройте истории изобретений и попробуйте<br class="desktop-break" />
+            создать что-то своими руками.</p
+          >
+          <div class="hero-actions">
+            <a class="button button-green" href="#collection"
+              >Исследовать коллекцию <span aria-hidden="true">↗</span></a
+            >
+            <a class="text-link" href="#workshop"
+              ><span class="play-icon" aria-hidden="true">▷</span> Собрать изобретение</a
+            >
+          </div>
+          <div class="hero-note"
+            ><span class="note-line"></span> Для тех, кто всегда спрашивает «а как это
+            работает?»</div
+          >
+        </div>
+        <div class="hero-visual">
+          <div class="draft-corner top-left"></div><div class="draft-corner bottom-right"></div>
+          <div class="drawing-topline"
+            ><span>АРХИВ ИНЖЕНЕРНЫХ ИДЕЙ</span><span>ЛИСТ 01 / 06</span></div
+          >
+          <div
+            class="hero-drawing"
+            id="hero-drawing"
+            aria-label="Авторская иллюстрация велосипеда в стиле технического чертежа"></div>
+          <span class="drawing-caption caption-one"
+            >два колеса.<br />
+            бесконечные возможности.</span
+          >
+          <span class="drawing-caption caption-two"
+            >всё начинается<br />
+            с одного оборота ↙</span
+          >
+          <div class="exhibit-label">
+            <span class="label-index">№ 001</span>
+            <span
+              ><strong
+                >Маленькая революция<br />
+                на двух колёсах</strong
+              ><small>ВЕЛОСИПЕД ROVER · 1885</small></span
+            >
+            <a href="#collection" aria-label="Посмотреть велосипед в коллекции">↗</a>
+          </div>
+          <div class="round-stamp" aria-hidden="true"
+            ><span>ЛЮБОПЫТСТВО</span><strong>✳</strong><span>ПРИВЕТСТВУЕТСЯ</span></div
+          >
+        </div>
+      </section>
+
+      <div class="museum-strip">
+        <div class="container strip-inner"
+          ><span><b>06</b> изобретений, изменивших повседневность</span
+          ><span class="strip-star" aria-hidden="true">✳</span
+          ><span><b>03</b> чертежа для ваших открытий</span
+          ><span class="strip-star" aria-hidden="true">✳</span
+          ><span>Один вопрос: <i>«А что, если…»</i></span></div
+        >
+      </div>
+
+      <!-- Коллекция. Карточки добавляются из массива exhibits в script.js. -->
+      <section
+        class="collection section-space container"
+        id="collection"
+        aria-labelledby="collection-title">
+        <div class="section-heading">
+          <div
+            ><p class="eyebrow">01 / КОЛЛЕКЦИЯ</p
+            ><h2 id="collection-title"
+              >Привычные вещи.<br />
+              <em>Непривычные истории.</em></h2
+            ></div
+          >
+          <p class="section-description"
+            >За каждым предметом — человек,<br />
+            смелый вопрос и множество попыток.<br />
+            Познакомьтесь с ними поближе.</p
+          >
+        </div>
+        <div class="collection-toolbar">
+          <div class="filters" role="group" aria-label="Категории изобретений">
+            <button class="filter active" data-filter="all" aria-pressed="true"
+              >Все изобретения <span>6</span></button
+            >
+            <button class="filter" data-filter="movement" aria-pressed="false">Движение</button>
+            <button class="filter" data-filter="communication" aria-pressed="false"
+              >Связь и звук</button
+            >
+            <button class="filter" data-filter="everyday" aria-pressed="false"
+              >Повседневность</button
+            >
+          </div>
+          <span class="collection-count" aria-live="polite" id="collection-count"
+            >06 экспонатов</span
+          >
+        </div>
+        <div class="exhibit-grid" id="exhibit-grid"></div>
+        <noscript
+          ><p class="noscript"
+            >Включите JavaScript для просмотра коллекции и игры. В музее представлены велосипед
+            Rover (1885), телефон Белла (1876), фонограф Эдисона (1877), лампа накаливания (1879),
+            фотография Ньепса (1827) и самолёт братьев Райт (1903).</p
+          ></noscript
+        >
+        <p class="collection-footnote"
+          ><span aria-hidden="true">ⓘ</span> Изобретения редко появляются в одиночку. Здесь —
+          ключевые этапы их истории. Иллюстрации и игровые модели условные.</p
+        >
+      </section>
+
+      <!-- Мини-игра: три чертежа и панель деталей. -->
+      <section class="workshop section-space" id="workshop" aria-labelledby="workshop-title">
+        <div class="container">
+          <div class="section-heading workshop-heading">
+            <div
+              ><p class="eyebrow">02 / ИНТЕРАКТИВНАЯ МАСТЕРСКАЯ</p
+              ><h2 id="workshop-title"
+                >От чертежа —<br />
+                <em>к изобретению.</em></h2
+              ></div
+            >
+            <div class="workshop-intro"
+              ><span class="small-tag">МИНИ-ИГРА</span
+              ><p
+                >Один чертёж, несколько деталей и вы.<br />
+                Разберитесь, как всё устроено,<br />
+                и соберите свой маленький прорыв.</p
+              ></div
+            >
+          </div>
+          <div class="game-shell">
+            <div class="game-topbar">
+              <div class="blueprint-tabs" role="group" aria-label="Выберите чертёж">
+                <button data-level="bicycle" class="blueprint-tab active" aria-pressed="true"
+                  >01 <span>Велосипед</span><span class="level-check"></span
+                ></button>
+                <button data-level="lamp" class="blueprint-tab" aria-pressed="false"
+                  >02 <span>Лампа</span><span class="level-check"></span
+                ></button>
+                <button data-level="plane" class="blueprint-tab" aria-pressed="false"
+                  >03 <span>Самолёт</span><span class="level-check"></span
+                ></button>
+              </div>
+              <span class="game-completed" id="game-completed">Чертежи: 0 / 3</span>
+            </div>
+            <div class="game-main">
+              <div class="blueprint-area">
+                <div class="blueprint-meta"
+                  ><span id="blueprint-code">ЧЕРТЁЖ В–01</span
+                  ><span>УЧЕБНАЯ МОДЕЛЬ · ВИД СБОКУ</span></div
+                >
+                <div class="blueprint-canvas" id="blueprint-canvas"
+                  ><div id="blueprint-art" aria-hidden="true"></div><div id="blueprint-slots"></div
+                ></div>
+                <div class="blueprint-bottom"
+                  ><span>МАСШТАБ: ВООБРАЖЕНИЕ</span
+                  ><span id="blueprint-part-count">ДЕТАЛЕЙ: 06</span></div
+                >
+              </div>
+              <div class="parts-panel">
+                <div class="parts-title"
+                  ><h3>Ваши детали</h3><span id="parts-counter">0 / 6</span></div
+                >
+                <div
+                  class="progress-track"
+                  role="progressbar"
+                  aria-label="Прогресс сборки"
+                  aria-valuemin="0"
+                  aria-valuemax="6"
+                  aria-valuenow="0"
+                  ><div id="game-progress"></div
+                ></div>
+                <p class="game-help"
+                  >Выберите деталь, затем нажмите на её место на чертеже. На компьютере можно
+                  перетаскивать.</p
+                >
+                <div class="parts-bank" id="parts-bank"></div>
+                <p class="game-status" id="game-status" aria-live="polite" role="status"
+                  >Начните с любой детали — присмотритесь к контурам.</p
+                >
+                <div class="game-tools"
+                  ><button id="hint-button" class="game-tool"
+                    ><span aria-hidden="true">☼</span> Подсказка</button
+                  ><button id="reset-button" class="game-tool"
+                    ><span aria-hidden="true">↻</span> Заново</button
+                  ></div
+                >
+              </div>
+            </div>
+            <div class="game-success" id="game-success" hidden>
+              <div class="success-icon" aria-hidden="true">✳</div
+              ><div
+                ><h3 id="success-title">Изобретение собрано!</h3
+                ><p id="success-description"></p></div
+              ><button id="next-blueprint" class="button button-cream"
+                >Следующий чертёж <span aria-hidden="true">↗</span></button
+              >
+            </div>
+          </div>
+          <div class="workshop-footer"
+            ><span>Без таймера. Без спешки. Только любопытство.</span
+            ><span
+              >Прогресс сохраняется в этом браузере <span aria-hidden="true">↗</span></span
+            ></div
+          >
+        </div>
+      </section>
+
+      <!-- Авторские идеи -->
+      <section class="ideas section-space container" id="ideas" aria-labelledby="ideas-title">
+        <div class="section-heading">
+          <div
+            ><p class="eyebrow">03 / ЛАБОРАТОРИЯ БУДУЩЕГО</p
+            ><h2 id="ideas-title"
+              >А что, если<br />
+              <em>следующая идея — ваша?</em></h2
+            ></div
+          >
+          <p class="section-description"
+            >Три авторские концепции нашего бюро.<br />
+            Это пока эскизы, а не готовые устройства.<br />
+            У любого изобретения есть первый набросок.</p
+          >
+        </div>
+        <div class="ideas-grid" id="ideas-grid">
+          <article class="idea-card"
+            ><div class="idea-top"
+              ><span>КОНЦЕПТ № 01</span><span class="idea-category">Город</span></div
+            ><div class="idea-art" id="idea-solar" aria-hidden="true"></div
+            ><h3>Скамейка «Солнечный привал»</h3
+            ><p
+              >Днём навес собирает солнечную энергию. Вечером скамейка освещает дорожку и помогает
+              зарядить телефон.</p
+            ><div class="idea-principle"
+              ><span>ИДЕЯ ВНУТРИ</span>Солнечная панель + аккумулятор</div
+            ></article
+          >
+          <article class="idea-card"
+            ><div class="idea-top"
+              ><span>КОНЦЕПТ № 02</span><span class="idea-category">Природа</span></div
+            ><div class="idea-art" id="idea-pot" aria-hidden="true"></div
+            ><h3>Горшок «Зелёный диалог»</h3
+            ><p
+              >Растение само подсказывает, когда хочет пить: механический индикатор меняет положение
+              при высыхании почвы.</p
+            ><div class="idea-principle"
+              ><span>ИДЕЯ ВНУТРИ</span>Датчик влажности без электроники</div
+            ></article
+          >
+          <article class="idea-card"
+            ><div class="idea-top"
+              ><span>КОНЦЕПТ № 03</span><span class="idea-category">Энергия</span></div
+            ><div class="idea-art" id="idea-light" aria-hidden="true"></div
+            ><h3>Фонарь «Один оборот»</h3
+            ><p
+              >Свет для прогулок, которому не нужна розетка. Поворот ручки запускает генератор и
+              пополняет запас энергии.</p
+            ><div class="idea-principle"
+              ><span>ИДЕЯ ВНУТРИ</span>Ручной генератор + светодиод</div
+            ></article
+          >
+        </div>
+        <div class="idea-invitation"
+          ><span class="invitation-star" aria-hidden="true">✳</span
+          ><div
+            ><h3>Заметили проблему? Это уже начало.</h3
+            ><p>Запишите идею, пока она не убежала. Ваши заметки останутся в этом браузере.</p></div
+          ><button class="button button-outline" id="open-idea"
+            >Записать свою идею <span aria-hidden="true">↗</span></button
+          ></div
+        >
+        <div id="personal-ideas" class="personal-ideas" hidden
+          ><div class="personal-heading"
+            ><h3>Ваш блокнот изобретателя</h3><span>СОХРАНЕНО НА ЭТОМ УСТРОЙСТВЕ</span></div
+          ><div id="personal-ideas-list"></div
+        ></div>
+      </section>
+
+      <section class="closing">
+        <div class="container closing-inner"
+          ><span class="closing-mark" aria-hidden="true">✳</span
+          ><p
+            >Мир меняют те,<br />
+            кто не перестаёт <em>удивляться.</em></p
+          ><a href="#home" class="back-top" aria-label="Вернуться к началу страницы">↑</a></div
+        >
+      </section>
+    </main>
+    <footer class="site-footer container"
+      ><a class="footer-brand" href="#home"
+        >бюро открытий<span>Виртуальный музей изобретений</span></a
+      ><p>Из прошлого — с любопытством к будущему.</p
+      ><span>УЧЕБНЫЙ ИНТЕРАКТИВНЫЙ ПРОЕКТ · 2026</span></footer
+    >
+
+    <!-- Содержимое окна меняется при выборе экспоната. -->
+    <dialog id="exhibit-dialog" class="exhibit-dialog" aria-labelledby="dialog-title">
+      <button class="dialog-close" aria-label="Закрыть описание">×</button>
+      <div id="dialog-content"></div>
+    </dialog>
+    <!-- Блокнот сохраняет идеи в браузере. -->
+    <dialog id="idea-dialog" class="idea-dialog" aria-labelledby="idea-dialog-title">
+      <button class="dialog-close" aria-label="Закрыть блокнот">×</button>
+      <p class="eyebrow">ЛИЧНЫЙ БЛОКНОТ</p><h2 id="idea-dialog-title">Поймать <em>идею.</em></h2>
+      <p class="form-intro">Большие открытия начинаются с небольшого наблюдения.</p>
+      <form id="idea-form">
+        <label for="idea-name">Как назовём изобретение?</label
+        ><input
+          id="idea-name"
+          name="name"
+          maxlength="70"
+          required
+          placeholder="Например, зонт с подсветкой" />
+        <label for="idea-problem">Какую проблему оно решает?</label
+        ><textarea
+          id="idea-problem"
+          name="problem"
+          maxlength="300"
+          required
+          rows="3"
+          placeholder="Что можно сделать удобнее?"></textarea>
+        <label for="idea-solution">Как оно будет работать?</label
+        ><textarea
+          id="idea-solution"
+          name="solution"
+          maxlength="500"
+          required
+          rows="3"
+          placeholder="Опишите главный принцип вашей идеи"></textarea>
+        <p id="idea-form-status" role="status" aria-live="polite"></p>
+        <button type="submit" class="button button-green"
+          >Сохранить в блокнот <span aria-hidden="true">↗</span></button
+        >
+      </form>
+    </dialog>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  </body>
+</html>
